@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: DIM_CUSTOMER
+    columns:
+      - name: CUSTOMER_ID
+        tests:
+          - not_null
+          - unique
+
+  - name: DIM_DATE
+    columns:
+      - name: activity_date
+        tests:
+          - not_null
+          - unique
+      - name: year
+        tests:
+          - not_null
+      - name: WEEK_NUMBER
+        tests:
+          - not_null
+
+  - name: DIM_PRODUCT
+    columns:
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+          - unique
+      - name: PRICE
+        tests:
+          - not_null
+
+  - name: ORDERS
+    columns:
+      - name: PRODUCT_ID
+        tests:
+          - not_null
+      - name: ORDER_DATE
+        tests:
+          - not_null
+      - name: QUANTITY
+        tests:
+          - not_null

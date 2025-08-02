@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: staging
+    database: GEORGI_HW
+    schema: GEORGI_HW_STAGING
+    tables:
+      - name: READ_RAW
+        tests:
+          - not_null:
+              column_name: ORDER_ITEMS
+              severity: warn
+          - not_null:
+              column_name: ORDER_DATE
+              severity: warn
+          - not_null:
+              column_name: ORDER_ID
+              severity: warn
