@@ -1,25 +1,12 @@
-name: 'GEORGI_HW'
+name: 'georgi_hw'
 version: '1.0.0'
-require-dbt-version: ">=1.0.0"
+config-version: 2
+
 profile: 'GEORGI_HW'
 
 model-paths: ["models"]
-analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["seeds"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
-models:
-  GEORGI_HW:
-    staging:
-      +materialized: table
-      +schema: staging
-
-    transformation:
-      +materialized: table
-      +schema: transformation
-
-    reporting:
-      +materialized: table
-      +schema: reporting
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
