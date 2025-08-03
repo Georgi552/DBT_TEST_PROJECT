@@ -17,7 +17,7 @@ This project demonstrates a full end-to-end analytics workflow:
 5. **Scheduling**  
    dbt jobs in dbt Cloud run at 12:00 UTC and 18:00 UTC daily.
 6. **Results**  
-   All artifacts—tables, views live in Snowflake so stakeholders can query them directly.
+   All tables and views live in Snowflake so stakeholders can query them directly.
 
 ---
 
