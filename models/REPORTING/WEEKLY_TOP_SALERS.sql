@@ -1,30 +1,13 @@
 {{ config(
-    materialized='table',
+    materialized='view',
     schema='REPORTING',
     tags=['REPORTING']
 ) }}
 
 with orders as (
-    select * from {{ ref('ORDERS') }} 
+    select * from {{ ref('FACT_ORDERS') }} 
 )
-, dates as (
-    select * from {{ ref('DIM_DATE') }} 
-)
-, joined as (
-    select 
-        ORDER_ID, 
-        CUSTOMER_ID, 
-        ORDER_DATE, 
-        dates.WEEK_NUMBER,
-        dates.YEAR,
-        PRODUCT_ID, 
-        PRODUCT_NAME, 
-        QUANTITY, 
-        PRICE
-    from orders ord
-    left join dates 
-        on dates.activity_date = ord.ORDER_DATE
-)
+
 , aggregated as (
     select 
         YEAR,
@@ -33,7 +16,7 @@ with orders as (
         PRODUCT_NAME,
         sum(QUANTITY) as total_sales
     
-    from joined
+    from orders
     group by all
 )
 , ranked AS (
