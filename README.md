@@ -1,4 +1,4 @@
-# dbt_test_project
+# dbt_snowflake_project
 
 > A dbt + Snowflake analytics pipeline for Fastmarkets interview
 
@@ -18,6 +18,10 @@ This project demonstrates a full end-to-end analytics workflow:
    dbt jobs in dbt Cloud run at 12:00 UTC and 18:00 UTC daily.
 6. **Results**  
    All tables and views live in Snowflake so stakeholders can query them directly.
+7. **Results visualisation**
+   Streamlit app for viewing results: https://app.snowflake.com/rzkynof/he73735/#/streamlit-apps/GEORGI_HW.GEORGI_HW_REPORTING.FEQSQY7HETS08_SK?ref=snowsight_shared
+   <img width="1808" height="951" alt="image" src="https://github.com/user-attachments/assets/3d190c19-b1de-42d4-af58-67ccef0c64b2" />
+
 
 ---
 
